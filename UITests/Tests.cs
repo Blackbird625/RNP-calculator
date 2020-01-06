@@ -101,5 +101,30 @@ namespace UITests
             Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
 
         }
+
+        [Test]
+        public void Operations1()
+        {
+            //Arange
+            app.Tap("5");
+            app.Tap("ENTER");
+            app.Tap("3");
+            app.Tap("ENTER");
+            app.Tap("4");
+            app.Tap("ENTER");
+
+            //act
+            app.Tap("+");
+            app.Tap("mul1");
+            app.Tap("2");
+            app.Tap("ENTER");
+            app.Tap("-");
+
+
+            //Assert
+            var appResult = app.Query("XStackValue").First(result => result.Text == "33");
+            Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
+
+        }
     }
 }
