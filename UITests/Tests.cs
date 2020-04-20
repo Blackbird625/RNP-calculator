@@ -44,6 +44,45 @@ namespace UITests
             var appResult = app.Query("XStackValue").First(result => result.Text == "17");
             Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
         }
+
+        [Test]
+        public void SimpleDivide()
+        {
+            //Arange
+            app.Tap("6");
+            app.Tap("2");
+            app.Tap("5");
+            app.Tap("ENTER");
+            app.Tap("5");
+            app.Tap("ENTER");
+
+            //act
+            app.Tap("/");
+
+            //Assert
+            var appResult = app.Query("XStackValue").First(result => result.Text == "125");
+            Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
+        }
+
+        [Test]
+        public void SimpleSubtrac()
+        {
+            //Arange
+            app.Tap("5");
+            app.Tap("4");
+            app.Tap("ENTER");
+            app.Tap("1");
+            app.Tap("2");
+            app.Tap("ENTER");
+
+            //act
+            app.Tap("-");
+
+            //Assert
+            var appResult = app.Query("XStackValue").First(result => result.Text == "42");
+            Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
+        }
+
         [Test]
         public void SimpleMultiply()
         {
@@ -56,8 +95,7 @@ namespace UITests
 
             //act
             app.Tap("mul1");
-            //app.Tap("mul2");
-
+            
             //Assert
             var appResult = app.Query("XStackValue").First(result => result.Text == "378");
             Assert.IsTrue(appResult != null, "Test failed because wrong value is displayed.");
