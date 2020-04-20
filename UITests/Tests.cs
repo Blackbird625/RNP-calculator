@@ -26,7 +26,7 @@ namespace UITests
             //waiting for my slow emulator to kick in
             //app.WaitForElement("X", timeout: TimeSpan.FromSeconds(1));
         }
-        //test master
+        //test master 2
         [Test]
         public void SimpleAdd()
         {
