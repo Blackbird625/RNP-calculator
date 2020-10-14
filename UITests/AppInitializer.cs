@@ -10,7 +10,7 @@ namespace UITests
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.InstalledApp("RPN.RPN").StartApp();
+                return ConfigureApp.Android.InstalledApp(packageName: "RPN.RPN").StartApp();
             }
 
             return ConfigureApp.iOS.StartApp();
